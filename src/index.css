@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 210 50% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 50% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 50% 15%;
+
+    --primary: 210 65% 16%;
+    --primary-foreground: 45 100% 97%;
+
+    --secondary: 207 100% 65%;
+    --secondary-foreground: 210 65% 10%;
+
+    --muted: 210 20% 94%;
+    --muted-foreground: 210 15% 45%;
+
+    --accent: 45 100% 48%;
+    --accent-foreground: 210 65% 10%;
+
+    --highlight: 18 100% 60%;
+    --highlight-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 210 65% 16%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-quote {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(45 100% 48%), hsl(35 100% 55%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, hsl(210 65% 16% / 0.95), hsl(210 65% 16% / 0.7));
+  }
+
+  .bg-gradient-section {
+    background: linear-gradient(180deg, hsl(210 20% 98%), hsl(210 20% 96%));
+  }
+
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, hsl(210 65% 12%), hsl(210 65% 20%));
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 30px hsl(45 100% 48% / 0.3), 0 0 60px hsl(45 100% 48% / 0.1);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 30px hsl(207 100% 65% / 0.3), 0 0 60px hsl(207 100% 65% / 0.1);
+  }
+
+  .school-name-glow {
+    filter: drop-shadow(0 0 40px hsl(45 100% 48% / 0.4)) drop-shadow(0 0 80px hsl(45 100% 48% / 0.15));
+  }
+
+  .glass-card {
+    background: hsl(var(--card) / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+    box-shadow: 0 8px 32px hsl(var(--primary) / 0.08), 0 0 0 1px hsl(var(--border) / 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .glass-card:hover {
+    box-shadow: 0 16px 48px hsl(var(--primary) / 0.12), 0 0 0 1px hsl(var(--border) / 0.2);
+  }
+
+  .floating-shape {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-shape-delayed {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+
+  .floating-shape-slow {
+    animation: float 8s ease-in-out infinite 1s;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(3deg); }
+}
+
+@keyframes scroll-indicator {
+  0% { opacity: 1; transform: translateY(0); }
+  50% { opacity: 0.5; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-indicator-anim {
+  animation: scroll-indicator 2s ease-in-out infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
